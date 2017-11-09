@@ -32,6 +32,7 @@ public class Grid {
 	
 	/**
 	 * Returns a String representation of the Grid.
+	 * used from prooject 3
 	 */
 	@Override
 	public String toString() {

@@ -3,10 +3,10 @@ public class Ship {
 	
 	private char type;		//ship type
 	private char orient;	//vertical or horizontal
-	private char vessal[];	//holds the status of the ship segment (hit(H)/normal(N))
+	private char vessal[];	//holds the status of the ship segment (hit(X)/normal(M))
 	private int row;		//row of beginning segment
 	private int col;		//col of beginning segment
-	
+	private int size;
 	/**
 	 * creates the ships and holds their statuses.
 	 * @param o holds the orientation of the ship.
@@ -16,11 +16,30 @@ public class Ship {
 	public Ship( char o, char t, int size) {
 		this.orient = o;
 		this.type = t;
+		this.size = size;
 		this.vessal = new char[size];
 		for (int i = 0; i < size; ++i){
-			this.vessal[i] = 'N';
+			this.vessal[i] = 'M';
 		}
 		
+	}
+	
+	/**
+	 * checks if the ship is destroyed
+	 */
+	public boolean isSunk(){
+		int count = 0;
+		for (int i = 0; i < this.size; ++i){
+			if (this.vessal[i] == 'X'){
+				++count;
+			}
+		}
+		if (count == this.size){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	/**
